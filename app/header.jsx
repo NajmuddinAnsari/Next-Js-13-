@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import React from 'react'
 
 export default function Header() {
   return (
@@ -9,7 +8,7 @@ export default function Header() {
                   <Link href={'/'}>Home</Link>
               </li>
               <li>
-                  <Link href={'/todos'}>ToDos</Link>
+                  <Link href={'/posts'}>Posts</Link>
               </li>
           </ul>
     </div>

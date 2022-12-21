@@ -1,13 +1,6 @@
 import './globals.css';
 import Header from './header';
-import SideBar from './SideBar';
-const getTodos = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
-  return res.json();
-}
 export default async function RootLayout({ children }) {
-  const todos = await getTodos();
-  console.log(todos)
   return (
     <html lang="en">
       <head>
@@ -19,12 +12,8 @@ export default async function RootLayout({ children }) {
         <header>
           <Header />
         </header>
-        <div className='flex'>
-          <aside className='w-[20%] max-h-screen overflow-scroll'>
-          <SideBar todos={todos} />
-        </aside>
-        <main className='w-[80%]'>{children}</main>
-        </div>
+        <main>{children}</main>
+        
       </body>
     </html>
   );
