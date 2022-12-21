@@ -1,7 +1,17 @@
-import React from 'react'
+import PostDetails from "./PostDetails";
 
-export default function page() {
+const getTodo = async (id) => {
+    const res =await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+    return res.json();
+}
+  
+export default async function page({ params }) {
+  console.log(params)
+  const todo = await getTodo(params.id);
+  console.log(todo)
   return (
-    <div>page</div>
+    <div>
+      <PostDetails todo={todo} />
+    </div>
   )
 }

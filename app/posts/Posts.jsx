@@ -7,7 +7,7 @@ export default function Posts({posts}) {
             <h1>najmuddin asnari</h1>
             {posts.map((post) => (
                 <li key={post.id}>
-                    <Link href={`/todos/${post.id}`}>{post.name}</Link>
+                    <Link href={`/posts/${post.id}`}>{post.name}</Link>
                 </li>
             ))}
           </>
