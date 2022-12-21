@@ -1,10 +1,14 @@
-
-
+// 'use client'
 import './globals.css';
-// import Header from '../component/Header';
-import Header from './Header';
-import SideBar from '../component/SideBar';
-export default function RootLayout({ children }) {
+import SideBar from './components/SideBar';
+import Header from './components/Header';
+const getTodos = async () => {
+  const res=await fetch('https://jsonplaceholder.typicode.com/todos')
+  return res.json();
+}
+export default async function RootLayout({ children }) {
+  const todos = await getTodos();
+  console.log(todos)
   return (
     <html lang="en">
       <head>
@@ -17,10 +21,16 @@ export default function RootLayout({ children }) {
           <Header />
         </header>
         <div className='flex'>
-          <aside className='w-[30%] bg-red-300 h-screen overflow-scroll'>
-          <SideBar />
+          <aside className='w-[20%] h-screen overflow-scroll'>
+            {/* {todos.map((todo) => (
+              <SideBar
+                key={todo.id}
+                id={todo.id}
+              />
+          ))} */}
+            <SideBar todos={ todos} />
         </aside>
-        <main className='w-[70%] bg-slate-300'>{children}</main>
+        <main className='w-[80%] bg-slate-300'>{children}</main>
         </div>
       </body>
     </html>
