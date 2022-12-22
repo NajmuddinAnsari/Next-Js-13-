@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function PostDetails({todo}) {
+export default function PostDetails({post}) {
   return (
       <div>
-          <h1>{ todo.name}</h1>
-          <span>{ todo.email}</span>
+          <h1>{ post.name}</h1>
+          <span>{ post.email}</span>
     </div>
   )
 }
